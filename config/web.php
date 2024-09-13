@@ -11,6 +11,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'controllerNamespace' => 'app\commands',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -58,6 +59,12 @@ $config = [
             ],
         ],
     ],
+
+    # Custom Commands
+    'controllerMap' => [
+        'my-command' => 'app\commands\MyCommandController',
+    ],
+
     'params' => $params,
 ];
 

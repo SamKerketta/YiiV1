@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     public $id;
     public $username;
@@ -100,5 +100,26 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+
+
+    /**
+     * Summary of generateRandomUser
+     * @param mixed $userDetails
+     * @return void
+     */
+    public function generateRandomUser($userDetails)
+    {
+        $user = new User();
+        $user->username = $userDetails['name'];
+        $user->email    = $userDetails['email'];
+        $user->password = $userDetails['password'];
+        $user->save();
+
+        // $command = $user->createCommand();
+        // $sql = $command->getRawSql();
+
+        // $var = 3;
+        // $user->save();
     }
 }

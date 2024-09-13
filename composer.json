@@ -46,6 +46,10 @@
         }
     },
     "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        },
+
         "files": [
             "app/Helpers/utility_helpers.php"
         ]

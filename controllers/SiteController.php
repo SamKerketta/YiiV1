@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -204,6 +205,23 @@ class SiteController extends Controller
             return  responseMsg(true, "jason decode!", $responseData);
         } catch (\Exception $e) {
             // $transaction->rollBack();
+            return responseMsg(false, $e->getMessage(), []);
+        }
+    }
+
+
+    /**
+     * Summary of actionCommand
+     * @return array
+     */
+    public function actionCommand()
+    {
+        try{
+            # calling a functionin the command controller 
+            $mUser = new User();
+            // $mUser->generateRandomUser();
+        }
+        catch (\Exception $e){
             return responseMsg(false, $e->getMessage(), []);
         }
     }
